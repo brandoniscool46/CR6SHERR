@@ -1,6 +1,6 @@
 # CR6SHERR
 Simple program that makes videos for crashing someone's Discord client.
-Please note that the videos may not crash recent client versions of Discord or Chromium, but it should do its job on some older versions if user has not updated Discord
+Please note that the videos may not crash recent Chromium client versions of Discord, but it should do its job on some older versions if user has not updated Discord
 
 #### WORKING AT IT
 

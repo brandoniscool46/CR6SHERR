@@ -10,6 +10,10 @@ Please note that the videos may not crash recent Chromium client versions of Dis
 1.  FFmpeg (from [cr6sherr-ffmpeg](https://github.com/mariangXzyy/cr6sherr-ffmpeg), downloaded by CR6SHERR; you can also download manually to %localappdata%\mgXzyy\ffmpeg\)
 2.  Wget (needed by CR6SHERR to download dependency if it does not exist)
 
+# Versions
+1.  Command Line format (Batch) - lightweight, powerful, makes you a hacker
+
+2.  User-friendly GUI format - for the ones not familiar with the terminal, more easy-to-use (will work on it once i finish the batch format)
 
 
 # CR6SHERR

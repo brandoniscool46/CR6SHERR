@@ -69,36 +69,68 @@ echo '      __\///\\\__________\/\\\_________\//\\\______/\\\__\////////\\\_\/\\
 echo '       ____\////\\\\\\\\\_\/\\\__________\///\\\\\\\\\/____/\\\\\\\\\\_\/\\\___\/\\\__\//\\\\\\\\\\_\/\\\______\//\\\_\/\\\______\//\\\_ 
 echo '        _______\/////////__\///_____________\/////////_____\//////////__\///____\///____\//////////__\///________\///__\///________\///__
 echo '         _________________________________________________________________________________________________________________________________
-echo '          ____________________________________|   mgXzyy#0001   |   github.com/mariangXzyy/CR6SHERR   |____________________________________
+echo '          ________________________|   Version 0.1   |   mgXzyy#0001   |   github.com/mariangXzyy/CR6SHERR   |______________________________
 echo.
 
-set /p videoname="[ INPUT ] Enter the video filename > "
+:cr6sherr_setup
+:: Program will request the full path of the video.
+set /p videopath="[ INPUT ] Enter the video file path > "
+:: Program will request a name for the output video.
 set /p crashername="[ OUTPUT ] Enter the crasher name > "
+:: Program will ask for a file type of the video.
 echo [ CR6SHERR ] What file type do you want the crasher video to be?
+:cr6sherr_ftsel
 echo 1 >> WebM
-echo 2 >> Mp4
-echo 3 >> Mov
-echo 4 >> Gif (no audio, no play button!)
+echo 2 >> MPEG4
+echo 3 >> Quicktime MOV
+echo 4 >> Matroska MKV
+echo X >> Gif (soon)
 set /p crasherfiletype="> "
 echo.
-if %crasherfiletype%==1 (
-    echo [CHK][ LOG ][ PREPARATION ]	Checking if ffmpeg exists...
-    
-    echo [OK.][ LOG ][ PREPARATION ]	FFmpeg exists.
-    echo [CHK][ LOG ][ PREPARATION ]	Checking if video given is valid...
-    echo [OK.][ LOG ][ PREPARATION ]	Video given is valid.
-    echo [RUN][ LOG ][ PROGRESS ]	Running ffmpeg with arguments `-i %videoname% -pix_fmt yuv444p video.webm`
-    ffmpeg -i %videoname% -pix_fmt yuv444p video.webm
-    (
-    echo file video.webm
-    echo file black.webm
-    )>"DONOTDELETE.txt"
-    %ffmpeg% -f concat -i DONOTDELETE.txt -codec copy %crashername%.webm
-    del "DONOTDELETE.txt"
-    echo Success.
-    set /p confDel=Do you want to delete 
-    del "video.webm"
+:: Program will check the user input and sets the ft variable (ft meaning filetype or extension)
+if %crasherfiletype%==1 (set ft="webm")
+if %crasherfiletype%==2 (set ft="mp4")
+if %crasherfiletype%==3 (set ft="mov")
+if %crasherfiletype%==4 (set ft="mkv")
+if %crasherfiletype%==X (
+    echo [ CR6SHERR ] GIF is not supported yet?
+    goto cr6sherr_ftsel
 )
+:: If it is not a valid option, the program will ask again for the filetype of the video.
+    echo [ CR6SHER ]    Invalid option. input a number (1-4)
+    goto cr6sherr_ftsel
+
+:cr6sherr_process
+:: Program will ask for user to confirm the actions.
+    echo [ CR6SHER ]    Are you sure you want to continue with the actions below?
+    echo Input Video Path > %videopath%
+    echo Output Crashing Video > %crashername%.%ft%
+    set /p confirmaction="(y/n) > "
+    echo.
+    if %confirmaction%==y (echo [OK.][ LOG ][ CR6SHERR ]    Proceeding.)
+    if %confirmaction%==n (goto cr6sherr_setup)
+:: Invalid option again?
+    echo [ CR6SHER ]    Invalid option, type Y for yes or N for no.
+    goto cr6sherr_process
+
+:: Program will check if the video is a vaild one.
+    echo [CHK][ LOG ][ PREPARATION ]	Checking if video given is valid...
+    :: there will be the code for checking validity
+    echo [OK.][ LOG ][ PREPARATION ]	Video given is valid.
+    echo [RUN][ LOG ][ PROGRESS ]	Running ffmpeg...
+    %ffmpeg% -i %videopath% -pix_fmt yuv444p %tempfolder%\video.webm
+    (
+    echo file %tempfolder%\video.webm
+    echo file %tempfolder%\black.webm
+    )>"%tempfolder%\ffmpeg.txt"
+    %ffmpeg% -f concat -i DONOTDELETE.txt -codec copy %crashername%.webm
+    del "%tempfolder%\ffmpeg.txt"
+    del "%tempfolder%\video.webm"
+    echo [OK.][ LOG ][ CR6SHER ]    Success.
+    echo.
+    set /p confDel="[ CR6SHER ] Do you want to delete the original video? (y/n) > "
+    
+
 
 :batchprep_ffmpegNULL
 	echo [ERR][ LOG ][ BATCHPREP ]	FFMPEG DOES NOT EXIST IN 'APPDATA\LOCAL\MGXZYY.

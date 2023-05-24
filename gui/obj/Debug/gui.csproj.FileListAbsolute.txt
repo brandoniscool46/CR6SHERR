@@ -1,0 +1,11 @@
+D:\Code\CR6SHERR\gui\obj\Debug\gui.csproj.AssemblyReference.cache
+D:\Code\CR6SHERR\gui\obj\Debug\gui.csproj.SuggestedBindingRedirects.cache
+D:\Code\CR6SHERR\gui\obj\Debug\gui.csproj.GenerateResource.cache
+D:\Code\CR6SHERR\gui\obj\Debug\gui.csproj.CoreCompileInputs.cache
+D:\Code\CR6SHERR\gui\bin\Debug\CR6SHER.exe.config
+D:\Code\CR6SHERR\gui\bin\Debug\CR6SHER.exe
+D:\Code\CR6SHERR\gui\bin\Debug\CR6SHER.pdb
+D:\Code\CR6SHERR\gui\obj\Debug\gui.cr6sherrgui.resources
+D:\Code\CR6SHERR\gui\obj\Debug\CR6SHER.Properties.Resources.resources
+D:\Code\CR6SHERR\gui\obj\Debug\CR6SHER.exe
+D:\Code\CR6SHERR\gui\obj\Debug\CR6SHER.pdb

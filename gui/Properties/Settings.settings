@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿<?xml version='1.0' encoding='utf-8'?>
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="CR6SHER.Properties" GeneratedClassName="Settings">
   <Profiles />
@@ -7,3 +8,12 @@
     </Setting>
   </Settings>
 </SettingsFile>
+=======
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>
+>>>>>>> 1f1131a5cdf9904f085678a435819cf58688151a

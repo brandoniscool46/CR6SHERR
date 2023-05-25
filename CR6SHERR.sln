@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
@@ -28,3 +29,30 @@ Global
 		SolutionGuid = {25130E4C-0BB3-418B-89E1-1E45CAD4AB8A}
 	EndGlobalSection
 EndGlobal
+=======
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33627.172
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gui", "gui\gui.csproj", "{29B4AFA6-DBC0-4E54-BE03-89A05D53D08E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{29B4AFA6-DBC0-4E54-BE03-89A05D53D08E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29B4AFA6-DBC0-4E54-BE03-89A05D53D08E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29B4AFA6-DBC0-4E54-BE03-89A05D53D08E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29B4AFA6-DBC0-4E54-BE03-89A05D53D08E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {25130E4C-0BB3-418B-89E1-1E45CAD4AB8A}
+	EndGlobalSection
+EndGlobal
+>>>>>>> 1f1131a5cdf9904f085678a435819cf58688151a

@@ -12,11 +12,7 @@ Please note that the videos may not crash recent desktop client versions of Disc
 # Dependencies:
 The only dependency is FFmpeg (can be downloaded by CR6SHERR with scoop if it is not installed)
 
-# Versions
-1.  Command Line format (Batch) - lightweight, powerful, makes you a hacker
-    ![cmd](https://github.com/mariangXzyy/CR6SHERR/assets/107469245/93070f70-9e12-4ecb-b87d-6a9d4c28d103)
-2.  User-friendly GUI format - for the ones not familiar with the terminal, more easy-to-use (will work on it once i finish the batch format)
-    ![gui](https://github.com/mariangXzyy/CR6SHERR/assets/107469245/f5d1dca6-d41d-4b24-88c3-6478e80da022)
+![cmd](https://github.com/mariangXzyy/CR6SHERR/assets/107469245/93070f70-9e12-4ecb-b87d-6a9d4c28d103)
 
 # Contribution
 <p align=center>I made this because of boredom. Feel free to fork this repository and modify the code as you want. I might also see the forks, if your code in this project is very useful and better, I will add your name here in this repo AND in the batch script & GUI program and copy the code to it.</p>

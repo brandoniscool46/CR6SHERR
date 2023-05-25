@@ -1,6 +1,6 @@
 <a align=center href="https://github.com/mariangXzyy/CR6SHERR"><img src="https://github.com/mariangXzyy/CR6SHERR/blob/9c48c7b309b5dccea2c2a1755dc636699ec85559/logo.png"></a>
 <p align=center>
-  <img alt="Batch version size" src="https://img.shields.io/github/size/mariangXzyy/CR6SHERR/cr6sherr.bat?label=Batch%20Version%20Size&style=for-the-badge"><img alt="GitHub all releases" src="https://img.shields.io/github/downloads/mariangXzyy/CR6SHERR/total?style=for-the-badge"><img alt="GitHub issues" src="https://img.shields.io/github/issues/mariangXzyy/CR6SHERR?style=for-the-badge">
+  <img alt="Batch version size" src="https://img.shields.io/github/size/mariangXzyy/CR6SHERR/cr6sherr.bat?label=Batch%20Version%20Size&style=for-the-badge"><img alt="GitHub all releases" src="https://img.shields.io/github/downloads/mariangXzyy/CR6SHERR/total?style=for-the-badge"><img alt="GitHub issues" src="https://img.shields.io/github/issues/mariangXzyy/CR6SHERR?style=for-the-badge"><img alt="Latest Release Tag" src="https://img.shields.io/github/v/tag/mariangxzyy/cr6sherr?label=latest%20release&style=for-the-badge">
 </p>
 
 # CR6SHERR

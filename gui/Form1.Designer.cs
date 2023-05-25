@@ -1,6 +1,6 @@
 ﻿namespace gui
 {
-    partial class cr6sherrgui
+    partial class Form1
     {
         /// <summary>
         /// Required designer variable.
@@ -28,8 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(cr6sherrgui));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.topbar = new System.Windows.Forms.Panel();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.topbar_minimize = new System.Windows.Forms.Label();
             this.topbar_exit = new System.Windows.Forms.Label();
@@ -37,7 +38,12 @@
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.sidebar = new System.Windows.Forms.Panel();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.creationpanel = new System.Windows.Forms.Panel();
+            this.button3 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -48,19 +54,15 @@
             this.button1 = new System.Windows.Forms.Button();
             this.creationpanel_input = new System.Windows.Forms.TextBox();
             this.creationpanel_inputlabel = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.topbar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.sidebar2.SuspendLayout();
             this.sidebar.SuspendLayout();
-            this.creationpanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.creationpanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // topbar
@@ -76,8 +78,22 @@
             this.topbar.Size = new System.Drawing.Size(696, 34);
             this.topbar.TabIndex = 0;
             this.topbar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.topbar_MouseDown);
-            this.topbar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.topbar_MouseMove);
+            this.topbar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Topbar_MouseMove);
             this.topbar.MouseUp += new System.Windows.Forms.MouseEventHandler(this.topbar_MouseUp);
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(155)))), ((int)(((byte)(164)))));
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Font = new System.Drawing.Font("Filson Pro", 7.68932F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.linkLabel1.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(155)))), ((int)(((byte)(164)))));
+            this.linkLabel1.Location = new System.Drawing.Point(137, 12);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(426, 13);
+            this.linkLabel1.TabIndex = 3;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Dummy application, functionality is not added. Please use the batch version.";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabel1_LinkClicked);
             // 
             // pictureBox1
             // 
@@ -100,7 +116,7 @@
             this.topbar_minimize.Size = new System.Drawing.Size(32, 29);
             this.topbar_minimize.TabIndex = 1;
             this.topbar_minimize.Text = "🗕";
-            this.topbar_minimize.Click += new System.EventHandler(this.label2_Click);
+            this.topbar_minimize.Click += new System.EventHandler(this.AppMinimizeAction);
             // 
             // topbar_exit
             // 
@@ -113,7 +129,7 @@
             this.topbar_exit.Size = new System.Drawing.Size(32, 29);
             this.topbar_exit.TabIndex = 0;
             this.topbar_exit.Text = "🗙";
-            this.topbar_exit.Click += new System.EventHandler(this.label1_Click);
+            this.topbar_exit.Click += new System.EventHandler(this.AppExitAction);
             // 
             // sidebar2
             // 
@@ -151,14 +167,55 @@
             // sidebar
             // 
             this.sidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(34)))));
+            this.sidebar.Controls.Add(this.pictureBox5);
             this.sidebar.Controls.Add(this.pictureBox4);
             this.sidebar.Controls.Add(this.pictureBox3);
             this.sidebar.Controls.Add(this.pictureBox2);
             this.sidebar.Dock = System.Windows.Forms.DockStyle.Left;
             this.sidebar.Location = new System.Drawing.Point(0, 0);
             this.sidebar.Name = "sidebar";
-            this.sidebar.Size = new System.Drawing.Size(52, 474);
+            this.sidebar.Size = new System.Drawing.Size(51, 474);
             this.sidebar.TabIndex = 0;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = global::CR6SHER.Properties.Resources.setting;
+            this.pictureBox5.Location = new System.Drawing.Point(5, 94);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(41, 38);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox5.TabIndex = 3;
+            this.pictureBox5.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = global::CR6SHER.Properties.Resources.information;
+            this.pictureBox4.Location = new System.Drawing.Point(5, 428);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(41, 38);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox4.TabIndex = 2;
+            this.pictureBox4.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::CR6SHER.Properties.Resources.download;
+            this.pictureBox3.Location = new System.Drawing.Point(5, 50);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(41, 38);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 1;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::CR6SHER.Properties.Resources.create;
+            this.pictureBox2.Location = new System.Drawing.Point(5, 6);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(41, 38);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
             // 
             // creationpanel
             // 
@@ -178,6 +235,18 @@
             this.creationpanel.Name = "creationpanel";
             this.creationpanel.Size = new System.Drawing.Size(475, 474);
             this.creationpanel.TabIndex = 3;
+            // 
+            // button3
+            // 
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("FOT-NewRodin Pro UB", 11.18447F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.button3.Location = new System.Drawing.Point(7, 428);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(456, 37);
+            this.button3.TabIndex = 10;
+            this.button3.Text = "START THE CR6SHERR";
+            this.button3.UseVisualStyleBackColor = true;
             // 
             // comboBox1
             // 
@@ -288,62 +357,6 @@
             this.creationpanel_inputlabel.TabIndex = 0;
             this.creationpanel_inputlabel.Text = "Input Video";
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::CR6SHER.Properties.Resources.create;
-            this.pictureBox2.Location = new System.Drawing.Point(5, 6);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(41, 38);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 0;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::CR6SHER.Properties.Resources.download;
-            this.pictureBox3.Location = new System.Drawing.Point(5, 50);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(41, 38);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 1;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = global::CR6SHER.Properties.Resources.information;
-            this.pictureBox4.Location = new System.Drawing.Point(5, 428);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(41, 38);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox4.TabIndex = 2;
-            this.pictureBox4.TabStop = false;
-            // 
-            // button3
-            // 
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("FOT-NewRodin Pro UB", 11.18447F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.button3.Location = new System.Drawing.Point(7, 428);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(456, 37);
-            this.button3.TabIndex = 10;
-            this.button3.Text = "START THE CR6SHERR";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // linkLabel1
-            // 
-            this.linkLabel1.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(155)))), ((int)(((byte)(164)))));
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Font = new System.Drawing.Font("Filson Pro", 7.68932F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.linkLabel1.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(155)))), ((int)(((byte)(164)))));
-            this.linkLabel1.Location = new System.Drawing.Point(137, 12);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(426, 13);
-            this.linkLabel1.TabIndex = 3;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Dummy application, functionality is not added. Please use the batch version.";
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
-            // 
             // cr6sherrgui
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -363,11 +376,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.sidebar2.ResumeLayout(false);
             this.sidebar.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.creationpanel.ResumeLayout(false);
             this.creationpanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -398,6 +412,7 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.PictureBox pictureBox5;
     }
 }
 

@@ -22,5 +22,17 @@ namespace CR6SHER.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool DRPC {
+            get {
+                return ((bool)(this["DRPC"]));
+            }
+            set {
+                this["DRPC"] = value;
+            }
+        }
     }
 }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DiscordRPC.Logging;
+using DiscordRPC;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,31 +12,31 @@ using System.Windows.Forms;
 
 namespace gui
 {
-    public partial class cr6sherrgui : Form
+    public partial class Form1 : Form
     {
         bool isMouseDown;
-        public cr6sherrgui()
+        public Form1()
         {
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void AppExitAction(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void AppMinimizeAction(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
         }
 
-        private void topbar_MouseDown(object sender, MouseEventArgs e)
-        {
-            isMouseDown = true;
-        }
+        // The following code checks if the primary mouse button is down.
+        private void topbar_MouseDown(object sender, MouseEventArgs e) {isMouseDown = true;}
+        private void topbar_MouseUp(object sender, MouseEventArgs e) {isMouseDown = false;} 
 
-        private void topbar_MouseMove(object sender, MouseEventArgs e)
+        private void Topbar_MouseMove(object sender, MouseEventArgs e)
         {
+            // If the primary mouse is down on the window bar, the window will be moved.
             if (isMouseDown)
             {
                 int mousex = MousePosition.X - 400;
@@ -43,14 +45,8 @@ namespace gui
             }
         }
 
-        private void topbar_MouseUp(object sender, MouseEventArgs e)
-        {
-            isMouseDown = false;
-        }
 
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            System.Diagnostics.Process.Start("http://github.com/mariangXzyy/CR6SHERR");
-        }
+        private void LinkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) { _ = System.Diagnostics.Process.Start("http://github.com/mariangXzyy/CR6SHERR"); } // Opens the browser on the github repository.
+
     }
 }

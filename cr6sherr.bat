@@ -182,8 +182,10 @@ echo.
     echo [RUN][ LOG ][ PROGRESS ]   Deleting temporary files...
     del /q %tempfolder%\*.*
     echo [OK.][ LOG ][ CR6SHERR ]   Success! file:///%userprofile%/Downloads/%crashername%.%ft%
+    color 0
     echo.
     set /p confDel="[ CR6SHERR ] Do you want to delete the original video? (y/n) > "
+    color f
     if %confDel%==y (del %videopath% && goto finish)
     if %confDel%==n (echo. && goto finish)
     echo [ CR6SHERR ]   Invalid option, type Y for yes or N for no.

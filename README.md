@@ -15,5 +15,7 @@ The only dependency is FFmpeg (can be downloaded by CR6SHERR with scoop if it is
 ![cmd](https://github.com/mariangXzyy/CR6SHERR/assets/107469245/93070f70-9e12-4ecb-b87d-6a9d4c28d103)
 
 # Contribution
-<p align=center>I made this because of boredom. Feel free to fork this repository and modify the code as you want. I might also see the forks, if your code in this project is very useful and better, I will add your name here in this repo AND in the batch script & GUI program and copy the code to it.</p>
+<p align=center>I made this because of boredom. Feel free to fork this repository and modify the code as you want. I might also see the forks, if your code in this project is very useful and better, I will add your name here in this repo AND in the batch script and copy the code to it.</p>
 <p align=center><img alt="Contribution" src="https://cdn-icons-png.flaticon.com/512/5520/5520859.png" width=100 height=100></p>
+
+*GUI version is cancelled btw

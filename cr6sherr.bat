@@ -21,7 +21,7 @@
 
 
 @echo off
-set ver=0.9
+set ver=1.0
 
 %SystemDrive%
 :batchprep
@@ -122,7 +122,7 @@ echo.
     echo    Input Video Path:      %videopath%
     echo    Output Crashing Video: %crashername%.%ft%
     if NOT DEFINED crashmoment (
-        echo    Crashing in...         At the end (off 1 sec from end)
+        echo "   Crashing in...         At the end (off 1 sec from end)"
     ) else (
         echo    Crashing in...         %crashmoment% seconds
     )
@@ -153,10 +153,12 @@ echo.
 
     echo [RUN][ LOG ][ PROGRESS ]   ffmpeg: Splitting video...
     if NOT DEFINED crashmoment (
-        set crashmoment = %inputduration% - 1
-    )
+        ffmpeg -i %videopath% -ss 0 -t %inputduration% "%tempfolder%\pt1.mp4"
+        ffmpeg -i %videopath% -ss %inputduration% -t %inputduration% "%tempfolder%\pt2.mp4"
+    ) else (
         ffmpeg -i %videopath% -ss 0 -t %crashmoment% "%tempfolder%\pt1.mp4"
         ffmpeg -i %videopath% -ss %crashmoment% -t %inputduration% "%tempfolder%\pt2.mp4"
+    )
     echo [OK.][ LOG ][ PROGRESS ]   Split OK.
     echo [RUN][ LOG ][ PROGRESS ]   ffmpeg: Changing video properties
     ffmpeg -i "%tempfolder%\pt2.mp4" -pix_fmt yuv444p "%tempfolder%\pt2m.mp4"
@@ -166,11 +168,20 @@ echo.
     echo file pt2m.mp4>> %tempfolder%\fl.txt
     echo [OK.][ LOG ][ PROGRESS ]   Filelist OK.
     echo [RUN][ LOG ][ PROGRESS ]   Making the crasher video in Downloads folder...
-    ffmpeg -f concat -safe 0 -i "%tempfolder%\fl.txt" -codec copy %userprofile%\Downloads\%crashername%.%ft%
+    ffmpeg -f concat -safe 0 -i "%tempfolder%\fl.txt" -codec copy %userprofile%\Downloads\%crashername%.mp4
     echo [OK.][ LOG ][ PROGRESS ]   Saved as "%userprofile%\Downloads\%crashername%.mp4"
+    if not "%ft%" == "mp4" (
+        if not "%ft%" == "gif" (
+            rename "%userprofile%\Downloads\%crashername%.mp4" "%crashername%.%ft%"
+        ) else (
+            ffmpeg -ss 30 -t 3 -i input.mp4 \
+                -vf "fps=25,split" \
+                -loop 0 output.gif
+        )
+    )
     echo [RUN][ LOG ][ PROGRESS ]   Deleting temporary files...
-    ::del /q %tempfolder%\*.*
-    echo [OK.][ LOG ][ CR6SHERR ]   Success! file://%userprofile%\Downloads\%crashername%.%ft%
+    del /q %tempfolder%\*.*
+    echo [OK.][ LOG ][ CR6SHERR ]   Success! file:///%userprofile%/Downloads/%crashername%.%ft%
     echo.
     set /p confDel="[ CR6SHERR ] Do you want to delete the original video? (y/n) > "
     if %confDel%==y (del %videopath% && goto finish)

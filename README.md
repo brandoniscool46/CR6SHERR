@@ -8,11 +8,10 @@
 # CR6SHERR
 Simple program that makes videos for crashing someone's Discord client.
 Please note that the videos may not crash recent desktop client versions of Discord these days, but it should do its job on some older versions.
+![cmd](https://github.com/mariangXzyy/CR6SHERR/assets/107469245/93070f70-9e12-4ecb-b87d-6a9d4c28d103)
 
 # Dependencies:
 The only dependency is FFmpeg (can be downloaded by CR6SHERR with scoop if it is not installed)
-
-![cmd](https://github.com/mariangXzyy/CR6SHERR/assets/107469245/93070f70-9e12-4ecb-b87d-6a9d4c28d103)
 
 # Contribution
 <p align=center>I made this because of boredom. Feel free to fork this repository and modify the code as you want. I might also see the forks, if your code in this project is very useful and better, I will add your name here in this repo AND in the batch script and copy the code to it.</p>

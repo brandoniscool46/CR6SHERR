@@ -21,4 +21,5 @@ The only dependency is FFmpeg (can be downloaded by CR6SHERR if it is not instal
     <img alt="User-friendly GUI format preview" src="https://github.com/mariangXzyy/CR6SHERR/blob/85e43a11dcaebb49f3179ea454a85940a3048aa4/screenshots/imagine_2023-05-24_104810660.png">
 
 # Contribution
-I made this because of boredom. Feel free to fork this repository and modify the code as you want. I might also see the forks, if your code in this project is very useful and better, I will add your name here in this repo AND in the batch script & GUI program and copy the code to it.
+<p align=center>I made this because of boredom. Feel free to fork this repository and modify the code as you want. I might also see the forks, if your code in this project is very useful and better, I will add your name here in this repo AND in the batch script & GUI program and copy the code to it.</p>
+<p align=center><img alt="Contribution" src="https://cdn-icons-png.flaticon.com/512/5520/5520859.png" width=100 height=100></p>

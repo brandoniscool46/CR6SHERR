@@ -9,10 +9,8 @@
 Simple program that makes videos for crashing someone's Discord client.
 Please note that the videos may not crash recent desktop client versions of Discord these days, but it should do its job on some older versions.
 
-#### WORKING AT IT
-
 # Dependencies:
-The only dependency is FFmpeg (can be downloaded by CR6SHERR if it is not installed)
+The only dependency is FFmpeg (can be downloaded by CR6SHERR with scoop if it is not installed)
 
 # Versions
 1.  Command Line format (Batch) - lightweight, powerful, makes you a hacker

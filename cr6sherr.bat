@@ -21,14 +21,24 @@
 
 
 @echo off
-set ver=1.0
+set ver=1.1
+set errcode=00
 
 %SystemDrive%
 :batchprep
     echo [RUN][ LOG ][ BATCHPREP ]	Preparing for proper program usage...
     title "CR6SHERR // BatchPrep in progress..."
-    cd %localappdata% && echo [OK.][ LOG ][ BATCHPREP ]	CD ok.
-    if exist mgXzyy\temp\ (
+    set tempfolder=%localappdata%\mgXzyy\TEMP
+    if exist %tempfolder% (
+    	echo donotdeletewhilstcr6sherrscriptisrunning>%tempfolder%\cr6sherr
+	cd %tempfolder%
+	if exist cr6sherr (
+	    echo [OK.][ LOG ][ BATCHPREP ]	Vital file OK.
+	) else (
+	    echo [ERR][ LOG ][ BATCHPREP ]	Vital file not created?
+	    set errcode=22
+	    goto batchprep_fail
+	)
     	echo [OK.][ LOG ][ BATCHPREP ]	Temp folder exists, ok.
     ) else (
 	    echo [RUN][ LOG ][ BATCHPREP ]	Preparing temp folder.
@@ -38,9 +48,17 @@ set ver=1.0
 	    
     	mkdir TEMP
 	    echo [OK.][ LOG ][ BATCHPREP ]	'OK %localappdata%\mgXzyy\TEMP\
+	echo donotdeletewhilstcr6sherrscriptisrunning>%tempfolder%\cr6sherr
+	cd %tempfolder%
+	if exist cr6sherr (
+	    echo [OK.][ LOG ][ BATCHPREP ]	Vital file OK.
+	) else (
+	    echo [ERR][ LOG ][ BATCHPREP ]	Vital file not created?
+	    set errcode=22
+	    goto batchprep_fail
+	)
     	echo [OK.][ LOG ][ BATCHPREP ]	Temp folder created, continuing batchprep.
     )
-set tempfolder=%localappdata%\mgXzyy\TEMP
 echo [OK.][ LOG ][ BATCHPREP ]	TEMPFOLDER ok.
 echo [CHK][ LOG ][ BATCHPREP ]	Checking if ffmpeg is installed...
 where ffmpeg
@@ -141,10 +159,16 @@ echo.
     if exist %videopath% (
         echo [OK.][ LOG ][ PREPARATION ]	Video given is valid.
     ) else (
-        echo [ERR][ LOG ][ PREPARATION ]    Video given is not valid.
+	echo [ERR][ LOG ][ PREPARATION ]    Video given is not valid.
+	set errcode=01
         goto fail
     )
     cd %tempfolder%
+    if exist cr6sherr (ren  ) else (
+    	echo [ERR][ LOG ][ PREPARATION ]	Vital file not found, cd faulty?
+	set errcode=21
+	goto fail
+    )
     echo [RUN][ LOG ][ PROGRESS ]	ffprobe: Getting video duration...
     ffprobe -i %videopath% -show_entries format=duration -v quiet -of csv="p=0" > %tempfolder%\duration
     set /p inputduration= < %tempfolder%\duration
@@ -199,10 +223,13 @@ echo.
 
 
 :batchprep_ffmpegNULL
-	echo [ERR][ LOG ][ BATCHPREP ]	FFMPEG-SHARED IS NOT INSTALLED.
+	echo [ERR][ LOG ][ BATCHPREP ]	FFMPEG WAS NOT FOUND.
 	set /p confFFMPEGinst="[ Input ] Download FFmpeg? You will need Scoop installed(if not, type S) (y/n/s) > "
     if %confFFMPEGinst%==y (goto batchprep_ffmpegpull)
-    if %confFFMPEGinst%==n (goto batchprep_fail)
+    if %confFFMPEGinst%==n (
+    	set errcode=03 
+    	goto batchprep_fail
+    )
     if %confFFMPEGinst%==s (goto batchprep_scoop)
     echo [ERR][ LOG ][ CR6SHERR ]   Invalid input. Type Y to install FFmpeg with Scoop, N to cancel or S to install Scoop for downloading FFmpeg.
     goto batchprep_ffmpegNULL
@@ -212,7 +239,9 @@ echo.
     echo [OK.][ LOG ][ BATCHPREP ]  FFmpeg should be downloaded at %userprofile%\scoop\apps\ffmpeg-shared\current\bin, checking...
     echo                            If it has not been installed, Scoop installation will start.
     set ffmpegchk="%userprofile%\scoop\apps\ffmpeg-shared\current\bin"
-    if exist %ffmpegchk%\ffmpeg.exe (goto batchprep_ffmpegOK)
+    if exist %ffmpegchk%\ffmpeg.exe (ren)
+    where ffmpeg
+	if %errorLevel% neq 0 (goto batchprep_ffmpegNULL)
     echo [ERR][ LOG ][ BATCHPREP ]  FFmpeg not downloaded properly. CR6SHERR will attempt Scoop installation
     echo.
     echo.
@@ -237,6 +266,8 @@ echo.
     echo                            If you get the same errors again and again, do not hesitate to open
     echo                            an issue on https://github.com/mariangXzyy/CR6SHERR/issues.
     echo.
+    echo 		            Error Code: %errcode%
+    echo.
     pause && goto exit
 
 :fail
@@ -244,7 +275,9 @@ echo.
     echo.
     echo [ERR][ LOG ][ CR6SHERR ]   An error has occurred. Log is printed above and not saved as text file.
     echo                            If you get the same errors again and again, do not hesitate to open
-    echo                            an issue on https://github.com/mariangXzyy/CR6SHERR/issues.
+    echo                            an issue on https://github.com/mariangXzyy/CR6SHERR/issues with the log and code.
+    echo.
+    echo 		            Error Code: %errcode%
     echo.
     pause && goto exit
 
